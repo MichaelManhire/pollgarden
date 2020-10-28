@@ -1,0 +1,106 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+abbr[title] {
+    text-decoration: none;
+}
+
+input[type="file"] {
+    max-width: 250px;
+}
+
+@layer components {
+    .base-transition {
+        @apply transition duration-150 ease-in-out;
+    }
+
+    .button {
+        @apply inline-flex items-center px-4 py-2 border border-transparent text-sm leading-5 font-medium rounded-md base-transition;
+    }
+
+    .button:focus {
+        @apply outline-none;
+    }
+
+    .button-primary {
+        @apply text-white bg-green-600;
+    }
+
+    .button-primary:hover {
+        @apply bg-green-500;
+    }
+
+    .button-primary:focus {
+        @apply border-green-700 shadow-outline-green;
+    }
+
+    .button-primary:active {
+        @apply bg-green-700;
+    }
+
+    .button-secondary {
+        @apply border-gray-300 text-gray-700 bg-white;
+    }
+
+    .button-secondary:hover {
+        @apply text-gray-500;
+    }
+
+    .button-secondary:focus {
+        @apply border-green-300 shadow-outline-green;
+    }
+
+    .button-secondary:active {
+        @apply text-gray-800 bg-gray-50;
+    }
+
+    .form-input:focus {
+        @apply border-green-300 shadow-outline-green;
+    }
+}
+
+.ballot-box-chad {
+    appearance: none;
+    height: 1.5rem;
+    left: 1rem;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1.5rem;
+    z-index: 10;
+}
+
+.ballot-box-chad::before {
+    background: #9fa6b2;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    content: "";
+    display: block;
+    height: 100%;
+    transition: background-color 0.15s ease-in-out;
+    width: 100%;
+}
+
+.ballot-box-chad:checked::before,
+.ballot-box-option:hover .ballot-box-chad::before {
+    background: #2f8132;
+}
+
+.ballot-box-result-bar {
+    background: #a3d9a5;
+    border-radius: 0.375rem;
+    height: 100%;
+    left: 0;
+    max-width: 0;
+    position: absolute;
+    top: 0;
+    transition: max-width 0.5s linear;
+    width: 100%;
+    z-index: 0;
+}
+
+.ballot-box-hidden-results .ballot-box-result-stats,
+.ballot-box-hidden-results .ballot-box-result-bar {
+    display: none;
+}
