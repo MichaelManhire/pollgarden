@@ -11,11 +11,11 @@
     <div class="border-b border-gray-200 px-4 py-5 sm:px-6">
         <x-media-object>
             <x-slot name="media">
-                <x-image :src="$poll->image()" width="64" height="64" />
+                <x-image :src="$poll->image()" class="w-16 h-16" width="64" height="64" />
             </x-slot>
 
             <x-slot name="body">
-                <x-page-heading>{{ $poll->title }}</x-page-heading>
+                <h1 class="font-semibold text-xl md:text-2xl leading-tight">{{ $poll->title }}</h1>
 
                 <div class="flex items-baseline mt-2">
                     <x-byline :author="$poll->author" :time="$poll->created_at" />
@@ -64,12 +64,16 @@
         </form>
     </div>
 
-    <div class="flex justify-between border-t border-gray-200 px-4 py-4 sm:px-6">
-        <x-badge :color="$poll->category->color()">{{ $poll->category->name }}</x-badge>
+    <div class="border-t border-gray-200 px-4 py-4 sm:px-6">
+        <div class="flex justify-between items-center">
+            <x-badge :color="$poll->category->color()">{{ $poll->category->name }}</x-badge>
 
-        <div class="flex ml-2">
-            @livewire('poll-stats', ['votes' => $poll->votes->count(), 'comments' => $poll->comments->count()])
+            <div class="ml-2">
+                @livewire('poll-stats', ['votes' => $poll->votes->count(), 'comments' => $poll->comments->count()])
+            </div>
+        </div>
 
+        <div class="flex justify-end items-baseline mt-3">
             @auth
                 <x-button-tertiary class="ml-4" x-on:click="$dispatch('show-results')" x-show="! isShowingResults">
                     {{ __('Show Results') }}

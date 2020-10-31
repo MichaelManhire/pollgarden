@@ -9,9 +9,9 @@
 
             <div class="min-w-0 flex-1 px-4 md:grid md:grid-cols-2 md:gap-4">
                 <div>
-                    <div class="text-sm leading-5 font-medium text-green-600 truncate">{{ $poll->title }}</div>
+                    <div class="text-sm leading-5 font-medium text-green-600">{{ $poll->title }}</div>
 
-                    <x-byline :author="$poll->author" :time="$poll->created_at" class="mt-2 truncate" is-linked="{{ false }}" />
+                    <x-byline :author="$poll->author" :time="$poll->created_at" class="mt-2" is-linked="{{ false }}" />
                 </div>
 
                 <div class="hidden md:block">

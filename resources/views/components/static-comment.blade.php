@@ -12,7 +12,7 @@
                     <x-avatar :user="$comment->author" />
                 </div>
 
-                <div class="ml-4">
+                <div class="ml-4 text-sm">
                     <p>{{ $comment->body }}</p>
                 </div>
             </div>

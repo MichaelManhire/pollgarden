@@ -5,18 +5,21 @@
         <x-icons.poll />
     </div>
     <p class="ml-1">
-        {{ $user->polls->count() }} {{ Str::plural('Poll', $user->polls->count()) }}
+        {{ $user->polls->count() }}
+        <span class="hidden sm:inline">{{ Str::plural('Poll', $user->polls->count()) }}</span>
     </p>
     <div class="ml-3">
         <x-icons.vote />
     </div>
     <p class="ml-1">
-        {{ $user->votes->count() }} {{ Str::plural('Vote', $user->votes->count()) }}
+        {{ $user->votes->count() }}
+        <span class="hidden sm:inline">{{ Str::plural('Vote', $user->votes->count()) }}</span>
     </p>
     <div class="ml-3">
         <x-icons.comment />
     </div>
     <p class="ml-1">
-        {{ $user->comments->count() }} {{ Str::plural('Comment', $user->comments->count()) }}
+        {{ $user->comments->count() }}
+        <span class="hidden sm:inline">{{ Str::plural('Comment', $user->comments->count()) }}</span>
     </p>
 </div>

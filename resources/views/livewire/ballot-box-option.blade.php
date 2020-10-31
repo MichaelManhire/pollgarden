@@ -18,7 +18,7 @@
         <span class="relative z-10">{{ $option->name }}</span>
 
         <span class="ballot-box-result-stats relative z-10 whitespace-no-wrap">
-            <span class="inline-block ml-4">{{ $numberOfVotes }} {{ Str::plural('vote', $numberOfVotes) }}</span>
+            <span class="hidden sm:inline-block ml-4">{{ $numberOfVotes }} {{ Str::plural('vote', $numberOfVotes) }}</span>
             <span class="inline-block ml-2">{{ $option->percentage($numberOfVotes, $totalVotes) }}</span>
         </span>
 

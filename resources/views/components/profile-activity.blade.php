@@ -6,16 +6,16 @@
             <x-icons.calendar />
         </div>
         <p class="ml-1">
-            {{ __('Joined') }}:
+            <span class="block sm:inline">{{ __('Joined') }}:</span>
             <x-time :time="$user->created_at" class="text-gray-800" />
         </p>
     </div>
-    <div class="flex sm:justify-end sm:mt-2 ml-2 sm:ml-0">
+    <div class="flex sm:justify-end sm:mt-2 ml-6 sm:ml-0">
         <div>
             <x-icons.clock />
         </div>
         <p class="ml-1">
-            {{ __('Last Online') }}:
+            <span class="block sm:inline">{{ __('Last Online') }}:</span>
             @if ($user->isOnline())
                 <span class="text-gray-800">{{ __('Now') }}</span>
             @else

@@ -1,12 +1,12 @@
 @props(['users'])
 
 @if ($users->count())
-    <ul class="flex overflow-hidden">
+    <ul class="flex">
         @foreach ($users as $user)
             <li class="{{ $loop->first ?: '-ml-2' }}">
-                <a href="{{ route('users.show', $user) }}" title="{{ $user->name }}">
+                <a class="block" href="{{ route('users.show', $user) }}" title="{{ $user->name }}">
                     <img
-                        class="inline-block rounded-full text-white shadow-solid"
+                        class="inline-block w-8 h-8 rounded-full text-white bg-gray-100 shadow-solid"
                         src="{{ $user->profile_photo_url }}"
                         alt="{{ $user->name }}"
                         width="32"

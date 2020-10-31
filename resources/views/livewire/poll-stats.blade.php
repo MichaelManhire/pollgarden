@@ -3,12 +3,14 @@
         <x-icons.poll />
     </div>
     <p class="ml-1">
-        {{ $votes }} {{ Str::plural('vote', $votes) }}
+        {{ $votes }}
+        <span class="hidden sm:inline">{{ Str::plural('vote', $votes) }}</span>
     </p>
     <div class="ml-3">
         <x-icons.comment />
     </div>
     <p class="ml-1">
-        {{ $comments }} {{ Str::plural('comment', $comments) }}
+        {{ $comments }}
+        <span class="hidden sm:inline">{{ Str::plural('comment', $comments) }}</span>
     </p>
 </div>
