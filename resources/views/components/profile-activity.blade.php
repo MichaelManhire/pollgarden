@@ -10,6 +10,7 @@
             <x-time :time="$user->created_at" class="text-gray-800" />
         </p>
     </div>
+
     <div class="flex sm:justify-end sm:mt-2 ml-6 sm:ml-0">
         <div>
             <x-icons.clock />
@@ -27,4 +28,10 @@
             @endif
         </p>
     </div>
+
+    @can('create', App\Models\Message::class)
+        <div class="flex sm:justify-end sm:mt-4 ml-auto sm:ml-0">
+            <x-link-as-button href="{{ route('messages.show', $user) }}">{{ __('Send Message') }}</x-link-as-button>
+        </div>
+    @endcan
 </div>

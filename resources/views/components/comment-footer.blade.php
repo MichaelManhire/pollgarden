@@ -11,7 +11,7 @@
         />
     @endif
 
-    <div class="ml-auto">
+    <div class="ml-auto flex-none">
         @can('create', App\Models\Comment::class)
             <x-button-tertiary
                 x-text="isReplying ? 'Cancel' : 'Reply'"
@@ -20,7 +20,11 @@
         @endcan
 
         @livewire('like-button', ['comment' => $comment, 'numberOfLikes' => $comment->numberOfLikes()])
+    </div>
+</div>
 
+@can('update', $comment)
+    <div class="flex justify-end mt-3">
         @can('update', $comment)
             <x-button-tertiary
                 class="ml-2"
@@ -35,6 +39,7 @@
                 action="{{ route('comments.destroy', $comment->id) }}"
                 method="DELETE"
                 x-data="{ isOpen: false }"
+                style="position: relative; top: -1px;"
             >
                 <x-button-tertiary type="button" x-on:click="isOpen = true">{{ __('Delete') }}</x-button-tertiary>
 
@@ -47,4 +52,4 @@
             </x-form>
         @endcan
     </div>
-</div>
+@endcan

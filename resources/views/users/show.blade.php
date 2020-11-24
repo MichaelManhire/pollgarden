@@ -62,7 +62,7 @@
                                 {{ $polls->onEachSide(0)->fragment('polls')->links() }}
                             </div>
                         @else
-                            <p class="mt-4">{{ __('This user hasn\'t created any polls yet!') }}</p>
+                            <p class="mt-4">{{ __('This member hasn\'t created any polls yet!') }}</p>
                         @endif
                     </section>
 
@@ -76,7 +76,7 @@
                                 {{ $votes->onEachSide(0)->fragment('votes')->links() }}
                             </div>
                         @else
-                            <p class="mt-4">{{ __('This user hasn\'t voted on any polls yet!') }}</p>
+                            <p class="mt-4">{{ __('This member hasn\'t voted on any polls yet!') }}</p>
                         @endif
                     </section>
 
@@ -90,7 +90,7 @@
                                 {{ $comments->onEachSide(0)->fragment('comments')->links() }}
                             </div>
                         @else
-                            <p class="mt-4">{{ __('This user hasn\'t posted any comments yet!') }}</p>
+                            <p class="mt-4">{{ __('This member hasn\'t posted any comments yet!') }}</p>
                         @endif
                     </section>
                 </x-slot>

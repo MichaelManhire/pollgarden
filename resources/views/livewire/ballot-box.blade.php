@@ -17,12 +17,12 @@
             <x-slot name="body">
                 <h1 class="font-semibold text-xl md:text-2xl leading-tight">{{ $poll->title }}</h1>
 
-                <div class="flex items-baseline mt-2">
+                <div class="md:flex md:items-baseline mt-2">
                     <x-byline :author="$poll->author" :time="$poll->created_at" />
 
                     <div class="flex items-baseline text-sm">
                         @can('update', $poll)
-                            <x-link class="ml-2" href="{{ route('polls.edit', $poll) }}">{{ __('Edit Poll') }}</x-link>
+                            <x-link class="mt-2 md:ml-2" href="{{ route('polls.edit', $poll) }}">{{ __('Edit Poll') }}</x-link>
                         @endcan
 
                         @can('delete', $poll)
@@ -65,30 +65,32 @@
     </div>
 
     <div class="border-t border-gray-200 px-4 py-4 sm:px-6">
-        <div class="flex justify-between items-center">
+        <div class="flex justify-between items-start md:items-center">
             <x-badge :color="$poll->category->color()">{{ $poll->category->name }}</x-badge>
 
-            <div class="ml-2">
-                @livewire('poll-stats', ['votes' => $poll->votes->count(), 'comments' => $poll->comments->count()])
+            <div class="md:flex md:items-center">
+                <div class="flex md:inline-block justify-end ml-2">
+                    @livewire('poll-stats', ['votes' => $poll->votes->count(), 'comments' => $poll->comments->count()])
+                </div>
+
+                @auth
+                    <div class="flex mt-4 md:mt-0">
+                        <x-button-tertiary class="ml-4" x-on:click="$dispatch('show-results')" x-show="! isShowingResults">
+                            {{ __('Show Results') }}
+                        </x-button-tertiary>
+
+                        <x-button-tertiary class="ml-4" x-on:click="$dispatch('show-voters')" x-show="! isShowingVoters">
+                            {{ __('Show Voters') }}
+                        </x-button-tertiary>
+
+                        @if (Auth::user()->hasVotedIn($poll))
+                            <x-form class="ml-4" action="{{ route('votes.destroy', Auth::user()->voteIn($poll)) }}" method="DELETE" style="position: relative; top: -1px;">
+                                <x-button-tertiary type="submit">{{ __('Withdraw Vote') }}</x-button-tertiary>
+                            </x-form>
+                        @endif
+                    </div>
+                @endauth
             </div>
-        </div>
-
-        <div class="flex justify-end items-baseline mt-3">
-            @auth
-                <x-button-tertiary class="ml-4" x-on:click="$dispatch('show-results')" x-show="! isShowingResults">
-                    {{ __('Show Results') }}
-                </x-button-tertiary>
-
-                <x-button-tertiary class="ml-4" x-on:click="$dispatch('show-voters')" x-show="! isShowingVoters">
-                    {{ __('Show Voters') }}
-                </x-button-tertiary>
-
-                @if (Auth::user()->hasVotedIn($poll))
-                    <x-form class="ml-4" action="{{ route('votes.destroy', Auth::user()->voteIn($poll)) }}" method="DELETE">
-                        <x-button-tertiary type="submit">{{ __('Withdraw Vote') }}</x-button-tertiary>
-                    </x-form>
-                @endif
-            @endauth
         </div>
     </div>
 </section>
