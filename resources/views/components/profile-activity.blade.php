@@ -1,6 +1,6 @@
 @props(['user'])
 
-<div class="flex items-center sm:block sm:ml-auto mt-6 sm:mt-0 text-gray-500 text-sm leading-5 font-medium">
+<div class="flex flex-wrap items-center sm:block sm:ml-auto mt-6 sm:mt-0 text-gray-500 text-sm leading-5 font-medium">
     <div class="flex sm:justify-end">
         <div>
             <x-icons.calendar />
@@ -30,7 +30,7 @@
     </div>
 
     @can('create', App\Models\Message::class)
-        <div class="flex sm:justify-end sm:mt-4 ml-auto sm:ml-0">
+        <div class="flex-none flex sm:justify-end mt-4 ml-auto sm:ml-0">
             <x-link-as-button href="{{ route('messages.show', $user) }}">{{ __('Send Message') }}</x-link-as-button>
         </div>
     @endcan

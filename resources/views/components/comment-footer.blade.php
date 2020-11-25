@@ -1,13 +1,13 @@
 @props(['comment', 'poll'])
 
-<div class="flex justify-between items-center">
+<div class="flex justify-between items-center overflow-hidden">
     <x-byline :time="$comment->created_at" />
 
     @if ($comment->author->hasVotedIn($poll))
         <x-voteline
             :option="$comment->author->votedOptionIn($poll)->name"
             :color="$comment->author->votedOptionIn($poll)->color()"
-            class="ml-3"
+            class="hidden md:flex ml-3"
         />
     @endif
 
@@ -53,3 +53,11 @@
         @endcan
     </div>
 @endcan
+
+@if ($comment->author->hasVotedIn($poll))
+    <x-voteline
+        :option="$comment->author->votedOptionIn($poll)->name"
+        :color="$comment->author->votedOptionIn($poll)->color()"
+        class="mt-4 md:hidden"
+    />
+@endif

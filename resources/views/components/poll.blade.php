@@ -2,7 +2,7 @@
 
 <a class="block hover:bg-gray-50 focus:outline-none focus:bg-gray-50 base-transition" href="{{ route('polls.show', $poll) }}">
     <div class="flex items-center px-4 py-4 sm:px-6">
-        <div class="min-w-0 flex-1 flex items-center">
+        <div class="min-w-0 flex-1 flex items-start">
             <div class="flex-shrink-0">
                 <x-image :src="$poll->image()" />
             </div>

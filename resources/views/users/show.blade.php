@@ -11,7 +11,7 @@
                     </x-slot>
 
                     <x-slot name="body">
-                        <div class="flex items-center">
+                        <div class="sm:flex sm:items-center">
                             <x-page-heading class="mr-2">{{ $user->name }}</x-page-heading>
                             <x-user-badge :user="$user" />
                         </div>

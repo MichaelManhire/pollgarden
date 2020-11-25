@@ -4,7 +4,7 @@
     <span style="color: {{ $color }};">
         <x-icons.vote />
     </span>
-    <span class="inline-block ml-1 overflow-ellipsis truncate md:overflow-visible" style="max-width: 25ch;">
+    <span class="inline-block ml-1">
         {{ $option }}
     </span>
 </p>
