@@ -1,5 +1,5 @@
 <div class="relative flex items-center {{ $index === 0 ?: 'mt-2' }}">
-    <label class="ballot-box-option relative flex-grow flex justify-between py-5 pl-12 pr-4 font-medium leading-tight bg-gray-100 hover:bg-gray-200 rounded-md cursor-pointer base-transition" for="{{ $option->id }}">
+    <label class="ballot-box-option relative flex-grow flex justify-between py-5 pl-12 pr-4 font-medium leading-tight bg-gray-100 hover:bg-gray-200 rounded-md cursor-pointer transition" for="{{ $option->id }}">
         <input
             class="ballot-box-chad"
             id="{{ $option->id }}"
@@ -17,7 +17,7 @@
 
         <span class="relative z-10">{{ $option->name }}</span>
 
-        <span class="ballot-box-result-stats relative z-10 whitespace-no-wrap">
+        <span class="ballot-box-result-stats relative z-10 whitespace-nowrap">
             <span class="hidden sm:inline-block ml-4">{{ $numberOfVotes }} {{ Str::plural('vote', $numberOfVotes) }}</span>
             <span class="inline-block ml-2">{{ $option->percentage($numberOfVotes, $totalVotes) }}</span>
         </span>

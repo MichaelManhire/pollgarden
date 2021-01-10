@@ -6,7 +6,7 @@
             <li class="{{ $loop->first ?: '-ml-2' }}">
                 <a class="block" href="{{ route('users.show', $user) }}" title="{{ $user->name }}">
                     <img
-                        class="inline-block w-8 h-8 rounded-full text-white bg-gray-100 shadow-solid"
+                        class="inline-block w-8 h-8 rounded-full text-white bg-gray-100 ring-2 ring-white"
                         src="{{ $user->profile_photo_url }}"
                         alt="{{ $user->name }}"
                         width="32"

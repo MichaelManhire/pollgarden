@@ -2,7 +2,7 @@
 
 <article>
     <a href="{{ route('polls.show', $notification->data['pollSlug']) }}">
-        <x-panel class="relative hover:bg-gray-50 base-transition">
+        <x-panel class="relative hover:bg-gray-50 transition">
             <div class="flex">
                 @if ($notification->type === 'App\Notifications\CommentReceived')
                     <div class="relative top-0.5 mr-1.5 text-gray-600">

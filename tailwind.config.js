@@ -9,7 +9,7 @@ module.exports = {
         ],
 
         options: {
-            whitelist: [
+            safelist: [
                 'bg-green-100',
                 'text-green-800',
                 'bg-blue-100',
@@ -92,9 +92,9 @@ module.exports = {
         },
     },
 
-    variants: {
-        opacity: ['responsive', 'hover', 'focus', 'disabled'],
-    },
-
-    plugins: [require('@tailwindcss/ui')],
+    plugins: [
+        require('@tailwindcss/forms'),
+        require('@tailwindcss/typography'),
+        require('@tailwindcss/aspect-ratio'),
+    ],
 };

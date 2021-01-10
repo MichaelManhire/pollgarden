@@ -1,7 +1,7 @@
 @props(['message', 'isRead'])
 
 <a href="{{ route('messages.show', $message->partner()) }}">
-    <x-panel class="relative hover:bg-gray-50 base-transition">
+    <x-panel class="relative hover:bg-gray-50 transition">
         <x-media-object>
             <x-slot name="media">
                 <x-avatar :user="$message->partner()" />
