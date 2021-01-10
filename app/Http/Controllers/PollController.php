@@ -59,12 +59,9 @@ class PollController extends Controller
         // Attach the poll to the authenticated user.
         $poll['user_id'] = Auth::id();
 
-        // Add a slug for the poll.
-        $poll['slug'] = Str::of($poll['title'])->slug('-') . '-' . rand();
-
         // Handle poll image.
         if (Arr::has($poll, 'image')) {
-            $poll = $this->handleImage($poll, $poll['slug']);
+            $poll = $this->handleImage($poll);
         }
 
         // Create the poll.
@@ -131,7 +128,7 @@ class PollController extends Controller
 
         // Handle poll image.
         if (Arr::has($updatedPoll, 'image')) {
-            $updatedPoll = $this->handleImage($updatedPoll, $poll['slug']);
+            $updatedPoll = $this->handleImage($updatedPoll);
         }
 
         // Update the poll.
@@ -181,12 +178,12 @@ class PollController extends Controller
         ]);
     }
 
-    protected function handleImage($poll, $slug)
+    protected function handleImage($poll)
     {
         // Get the name of the image path.
         $image = $poll['image'];
         $extension = $image->extension();
-        $path = 'polls/' . $slug . '.' . $extension;
+        $path = 'polls/' . Str::uuid() . '.' . $extension;
         $storagePath = storage_path('app/public/' . $path);
 
         // Crop and resize the image, then save it.
