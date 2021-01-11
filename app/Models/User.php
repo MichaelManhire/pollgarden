@@ -224,6 +224,15 @@ class User extends Authenticatable
         return $poll->votes->contains('user_id', $this->id);
     }
 
+    public function isAdministrator()
+    {
+        if ($this->id === 1) {
+            return true;
+        }
+
+        return false;
+    }
+
     public function isOnline()
     {
         if (is_null($this->last_online_at) || $this->last_online_at->diffInMinutes(now()) > 15) {
