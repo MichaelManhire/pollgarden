@@ -1,6 +1,6 @@
 @props(['user'])
 
-<a class="group block w-56 bg-white overflow-hidden shadow rounded-lg hover:bg-gray-50 base-transition" href="{{ route('users.show', $user) }}">
+<a class="group block w-56 bg-white overflow-hidden shadow rounded-lg hover:bg-gray-50 transition" href="{{ route('users.show', $user) }}">
     <div class="px-2 py-2.5 sm:p-3">
         <x-media-object class="items-center">
             <x-slot name="media">

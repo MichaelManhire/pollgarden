@@ -11,57 +11,30 @@ input[type="file"] {
 }
 
 @layer components {
-    .base-transition {
-        @apply transition duration-150 ease-in-out;
-    }
-
     .button {
-        @apply inline-flex items-center px-4 py-2 border border-transparent text-center text-sm leading-5 font-medium rounded-md base-transition;
-    }
-
-    .button:focus {
-        @apply outline-none;
+        @apply inline-flex items-center px-4 py-2 border border-transparent text-center text-sm leading-5 font-medium rounded-md transition;
     }
 
     .button-primary {
-        @apply text-white bg-green-600;
-    }
-
-    .button-primary:hover {
-        @apply bg-green-500;
-    }
-
-    .button-primary:focus {
-        @apply border-green-700 shadow-outline-green;
-    }
-
-    .button-primary:active {
-        @apply bg-green-700;
+        @apply text-white bg-green-600 hover:bg-green-700 focus:ring-2 focus:ring-offset-2 focus:ring-green-500;
     }
 
     .button-secondary {
-        @apply border-gray-300 text-gray-700 bg-white;
+        @apply border-gray-300 text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500;
     }
 
-    .button-secondary:hover {
-        @apply text-gray-500;
+    .button-danger {
+        @apply text-white bg-red-600 hover:bg-red-700 focus:ring-2 focus:ring-offset-2 focus:ring-red-500;
     }
 
-    .button-secondary:focus {
-        @apply border-green-300 shadow-outline-green;
-    }
-
-    .button-secondary:active {
-        @apply text-gray-800 bg-gray-50;
-    }
-
-    .form-input:focus {
-        @apply border-green-300 shadow-outline-green;
+    .form-input {
+        @apply shadow-sm focus:ring-green-500 focus:border-green-500 block w-full sm:text-sm border-gray-300 rounded-md;
     }
 }
 
 .ballot-box-chad {
     appearance: none;
+    border: none;
     height: 1.5rem;
     left: 1rem;
     position: absolute;

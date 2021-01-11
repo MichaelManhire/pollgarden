@@ -1,7 +1,7 @@
 <form class="inline-block ml-2" wire:submit.prevent="submitLike">
     @can('create', App\Models\Like::class)
         <button
-            class="relative top-1 inline-block base-transition {{ $hasBeenLikedByUser ? 'text-green-700' : 'text-gray-500 hover:text-green-900' }}"
+            class="relative top-1 inline-block transition {{ $hasBeenLikedByUser ? 'text-green-700' : 'text-gray-500 hover:text-green-900' }}"
             type="submit"
             title="{{ $hasBeenLikedByUser ? 'Unlike' : 'Like' }}"
         >
